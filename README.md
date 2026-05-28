@@ -1,59 +1,262 @@
-# Lab: Password Input
+# Lab: Password Input Event Handling in React
 
 ## Overview
-Now that you've learned how to work with events in React, it's time to build something and put those skills to use! Your goal for this lab is to add events in React to practice building event handling.
 
-You are working with a client to create a new password input within their website. They would like to keep track of when the user is typing as well as when the user hovers over and away from the submit button. This is to help with checking the cadence of their typing and the movement of their mouse for the purpose of adding anti-botting security for their user. Your task is to add these three events and functions related to the events so that the security engineer can easily come in and apply their anti-bot measures easily.
+This project demonstrates how to work with event handling in React by building a secure password input interface. The application tracks user interactions such as typing behavior and mouse movements, which can later be integrated into anti-bot security systems.
 
-## Task 1: Define the Problem
-- Create a password input that will track the changing of text and the mouse movements.
+The goal of this lab is to practice creating React components, attaching event listeners, and testing component behavior using React Testing Library and Vitest/Jest.
 
-## Task 2: Determine the Design
-### Determine Component Tree
-```
+---
+
+# Project Objective
+
+Create a password input system that:
+
+* Detects when a user types inside a password field
+* Detects when a mouse enters the submit button
+* Detects when a mouse leaves the submit button
+* Logs these interactions using event handler functions
+
+This simulates the foundation of behavior tracking systems used in modern authentication security.
+
+---
+
+# Component Structure
+
+```text
 └── App
     ├── PasswordInput
     └── SubmitButton
 ```
-### Isolate/Develop Design per Component
 
-## Task 3: Develop the Code
-### Create Components
-#### PasswordInput:
-- Create `PasswordInput` React component
-- Render an `<input>` with a password type
+---
 
-#### SubmitButton:
-- Create a `SubmitButton` React component
-- Render a `<button>` with the text “Submit Password”
+# Features
 
-### Add Events to Elements
-#### PasswordInput:
-- Add a change event to the `<input>`
+## PasswordInput Component
 
-#### SubmitButton:
-- Add a mouse enter event to the `<button>`
-- Add a mouse leave event to the `<button>`
+The `PasswordInput` component:
 
-### Create Event Handler Functions
-#### PasswordInput:
-- Create a `handleChange` function
-- Add a `console.log` to print out “Entering password…”
+* Renders an `<input>` element
+* Uses `type="password"`
+* Tracks typing activity using the `onChange` event
+* Calls a `handleChange()` function
+* Logs:
 
-#### SubmitButton:
-- Create a `handleEnter` function
-- Add a `console.log` to print out “Mouse Entering”
-- Create a `handleLeave` function
-- Add a `console.log` to print out “Mouse Exiting”
+```javascript
+"Entering password..."
+```
 
-### Call Function in Respective Event
+---
 
-## Task 4: Test and Refine
-- Debugging and testing during coding
+## SubmitButton Component
 
-## Task 5: Document and Maintain
+The `SubmitButton` component:
 
-## Tools and Resources
-- **GitHub Repository:** [React Event Handling Vite Lab](https://github.com/learn-co-curriculum/react-event-handling-vite-lab)
-- **Event Handling in React:** [React Documentation](https://react.dev/learn/responding-to-events#adding-event-handlers)
+* Renders a `<button>`
+* Displays the text:
 
+```text
+Submit Password
+```
+
+* Tracks mouse hover activity using:
+
+  * `onMouseEnter`
+  * `onMouseLeave`
+
+### Mouse Enter Event
+
+Logs:
+
+```javascript
+"Mouse Entering"
+```
+
+### Mouse Leave Event
+
+Logs:
+
+```javascript
+"Mouse Exiting"
+```
+
+---
+
+# Technologies Used
+
+* React
+* Vite
+* JavaScript (ES6)
+* React Testing Library
+* Vitest / Jest
+* HTML5
+* CSS3
+
+---
+
+# Project Setup Instructions
+
+## 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+```
+
+---
+
+## 2. Navigate into the Project Folder
+
+```bash
+cd react-event-handling-vite-lab
+```
+
+---
+
+## 3. Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 4. Start the Development Server
+
+```bash
+npm run dev
+```
+
+The project will run locally on:
+
+```text
+http://localhost:5173
+```
+
+---
+
+# Running Tests
+
+To ensure all components and event handlers work correctly, run:
+
+```bash
+npm test
+```
+
+or
+
+```bash
+npx vitest
+```
+
+---
+
+# Testing Objectives
+
+The tests verify that:
+
+* The password input renders correctly
+* The password input has the correct type
+* Typing triggers the correct console output
+* The submit button renders correctly
+* Mouse enter events trigger console output
+* Mouse leave events trigger console output
+
+---
+
+# Example Event Handlers
+
+## PasswordInput
+
+```javascript
+function handleChange() {
+  console.log("Entering password...");
+}
+```
+
+## SubmitButton
+
+```javascript
+function handleEnter() {
+  console.log("Mouse Entering");
+}
+
+function handleLeave() {
+  console.log("Mouse Exiting");
+}
+```
+
+---
+
+# Code Documentation
+
+Comments were added throughout the components to explain:
+
+* Component responsibilities
+* Event handling logic
+* Connections between components
+* Purpose of each handler function
+
+This improves readability and maintainability for future developers and security engineers.
+
+---
+
+# Screenshots
+
+## Application Interface
+
+*Add screenshot here*
+
+---
+
+## Successful Test Results
+
+*Add screenshot here*
+
+---
+
+# Future Improvements
+
+Possible future enhancements include:
+
+* Password strength validation
+* Real anti-bot analytics
+* Typing speed detection
+* Mouse movement tracking
+* API integration
+* Secure authentication workflows
+
+---
+
+# Learning Outcomes
+
+By completing this lab, you will understand how to:
+
+* Create reusable React components
+* Handle events in React
+* Use event listeners effectively
+* Write clean and maintainable code
+* Test React components using testing libraries
+* Structure React applications properly
+
+---
+
+# Resources
+
+* React Event Handling Documentation:
+  https://react.dev/learn/responding-to-events#adding-event-handlers
+
+* React Testing Library:
+  https://testing-library.com/docs/react-testing-library/intro/
+
+* Vitest Documentation:
+  https://vitest.dev/
+
+* Vite Documentation:
+  https://vitejs.dev/
+
+---
+
+# Author
+
+Developed as part of a React Event Handling Lab assignment.
